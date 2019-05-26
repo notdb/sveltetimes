@@ -1,6 +1,7 @@
 <script>
 	export let name;
 	import TopBar from "./components/TopBar.svelte";
+	import Header from "./components/Header.svelte";
 </script>
 
 <style>
@@ -17,4 +18,5 @@
 
 <div class="main">
 <TopBar />
+<Header />
 </div>
