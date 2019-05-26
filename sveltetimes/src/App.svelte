@@ -1,11 +1,20 @@
 <script>
 	export let name;
+	import TopBar from "./components/TopBar.svelte";
 </script>
 
 <style>
-	h1 {
-		color: purple;
-	}
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f1f1f1;
+  color: #333;
+  font-family: 'PT Sans', sans-serif;
+
+}
 </style>
 
-<h1>Hello {name}!</h1>
+<div class="main">
+<TopBar />
+</div>
