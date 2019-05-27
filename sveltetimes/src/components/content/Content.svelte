@@ -57,10 +57,8 @@
     selectedTab={selected} />
 
   {#if user.loggedIn}
-    <p>4</p>
     <Cards cards={filterCards()} key={cardData.headline} />
   {:else}
-    <p>3</p>
     <Cards cards={filterCards()} key={cardData.headline} />
   {/if}
 </div>
