@@ -6,29 +6,38 @@
   console.log(cardData);
 
   let selected = "all";
- 
-     let newArray = cardData;
-    $: newArray;
+  let tfToggle = "true";
+
+  let newArray = cardData;
+
+  let user = { loggedIn: false };
+
+  function toggle() {
+    user.loggedIn = !user.loggedIn;
+  }
 
   function changeSelected(tab) {
     selected = tab;
     console.log(selected);
+    toggle();
     filterCards();
-    
   }
 
   function filterCards() {
     let selected11 = selected;
 
     if (selected11 == "all") {
-       console.log(newArray, ' wooo');
-      return newArray;
+      console.log(cardData, user.loggedIn, " wooo");
+  
+      return cardData;
     } else {
       newArray = cardData.filter(function(card) {
         return card.tab == selected11;
       });
-      console.log(newArray, ' woo');
-            return newArray;
+      newArray = newArray;
+ 
+      console.log(newArray, user.loggedIn, " woo");
+      return newArray;
     }
   }
 </script>
@@ -46,5 +55,12 @@
     tabs={tabData}
     selectTabHandler={changeSelected}
     selectedTab={selected} />
-  <Cards cards={filterCards()} key={cardData.headline} />
+
+  {#if user.loggedIn}
+    <p>4</p>
+    <Cards cards={filterCards()} key={cardData.headline} />
+  {:else}
+    <p>3</p>
+    <Cards cards={filterCards()} key={cardData.headline} />
+  {/if}
 </div>
